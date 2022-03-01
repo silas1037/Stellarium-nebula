@@ -189,6 +189,8 @@ otypedic = {
 "?": 36
 }
 
+# convert catalog.txt to catalog.pack
+
 def ConverttxtToPack(in1,out1):
     dsoIn = QFile(in1)
     if dsoIn.open(QIODevice.ReadOnly | QIODevice.Text) is False:
@@ -221,7 +223,8 @@ def ConverttxtToPack(in1,out1):
         if (record.startswith("//") or record.startswith("#")):
             totalRecords-=1
             continue
-
+        
+        # write when could not get label from txt
         if not addedHead:
             dsoOutStream.writeQString('3.13')
             dsoOutStream.writeQString('standard')
@@ -342,6 +345,7 @@ def ConverttxtToPack(in1,out1):
     dsoOut.close()
     return
 
+# write lines to text file
 
 def writealllines(lines,src,srccoding="utf-8",crlf=True,EOF=False,mixCRLF=False):
     if mixCRLF:
@@ -357,7 +361,9 @@ def writealllines(lines,src,srccoding="utf-8",crlf=True,EOF=False,mixCRLF=False)
     fp.close()
 
 
-def decodeCat(in1,out1,dem='\t'):
+# convert catalog.pack to catalog.txt
+
+def decodePack2Txt(in1,out1,dem='\t'):
     dsoIn = QFile(in1)
     if dsoIn.open(QIODevice.ReadOnly) is False:
         return
@@ -438,8 +444,9 @@ def decodeCat(in1,out1,dem='\t'):
 
 
 if __name__ == '__main__':
-    src="catalog1.txt"
+    src="catalog.txt"
     dst="catalog.pack"
-    dst2="catalog2.txt"
     ConverttxtToPack(src, dst)
-    decodeCat(dst, dst2)
+    
+    # dst2="catalog1.txt"
+    # decodePack2Txt(dst, dst2)

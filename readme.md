@@ -4,7 +4,7 @@ Please download fixed catalog.dat from release page.
 
 Fixed for Catalog 3.13
 
-2/25/22: All DSO whose rank <= 10 in [NI_Rank](https://github.com/silas1037/DeepSkyCatalogs/blob/master/Format/NI2019/NI_rank.xlsx) have been checked.
+2/25/22: All DSO whose rank <= 10 in [Priority of NGC/IC](https://github.com/silas1037/DeepSkyCatalogs/releases/tag/v1.0) have been checked.
 
 2/26/22: All DSO in *Deep-sky  companions* have been checked.
 
